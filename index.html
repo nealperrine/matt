@@ -11,126 +11,63 @@
             padding: 0;
         }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #121b40;
-            color: #e5c158;
+            background-color: #0d1533;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 20px 0;
+            margin: 0;
+            padding: 20px;
         }
-        .container {
+        .wrapper {
+            max-width: 1024px;
             width: 100%;
-            max-width: 440px;
-            padding: 24px;
-            text-align: center;
-        }
-        .album-art {
-            width: 100%;
-            height: auto;
-            border-radius: 4px;
-            display: block;
-            margin-bottom: 24px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-        .header-title {
-            font-size: 20px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-        .album-title {
-            font-size: 28px;
-            font-weight: 800;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 28px;
-        }
-        .links-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-        @media (max-width: 400px) {
-            .links-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        .platform-btn {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: transparent;
-            border: 2px solid #e5c158;
-            border-radius: 12px;
-            padding: 10px 12px;
-            text-decoration: none;
-            color: #ffffff;
-            transition: all 0.2s ease;
+            justify-content: center;
         }
-        .platform-btn:hover {
-            background-color: rgba(229, 193, 88, 0.15);
-            transform: translateY(-1px);
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
         }
-        .platform-name {
-            font-size: 14px;
-            font-weight: 600;
-            color: #ffffff;
-        }
-        .listen-tag {
-            background-color: #e5c158;
-            color: #121b40;
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 1px;
-            padding: 4px 8px;
-            border-radius: 6px;
-            text-transform: uppercase;
+        area {
+            cursor: pointer;
         }
     </style>
+    <!-- Script to make image map coordinates responsive on mobile screens -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/image-map-resizer/1.0.10/js/imageMapResizer.min.js"></script>
 </head>
 <body>
 
-    <div class="container">
-        <img src="cover.jpg" alt="Matt Fox Band - MATT" class="album-art">
+    <div class="wrapper">
+        <img src="cover.jpg" usemap="#streaming-map" alt="Matt Fox Band - MATT">
 
-        <div class="header-title">Matt Fox Band</div>
-        <div class="album-title">MATT</div>
+        <map name="streaming-map">
+            <!-- Spotify (Top Left Button) -->
+            <area shape="rect" coords="140,755,488,815" href="YOUR_SPOTIFY_LINK" target="_blank" alt="Spotify">
 
-        <div class="links-grid">
-            <a href="YOUR_SPOTIFY_LINK" target="_blank" class="platform-btn">
-                <span class="platform-name">Spotify</span>
-                <span class="listen-tag">Listen</span>
-            </a>
+            <!-- Apple Music (Top Right Button) -->
+            <area shape="rect" coords="512,755,860,815" href="YOUR_APPLE_MUSIC_LINK" target="_blank" alt="Apple Music">
 
-            <a href="YOUR_APPLE_MUSIC_LINK" target="_blank" class="platform-btn">
-                <span class="platform-name">Apple Music</span>
-                <span class="listen-tag">Listen</span>
-            </a>
+            <!-- Amazon Music (Middle Left Button) -->
+            <area shape="rect" coords="140,828,488,885" href="YOUR_AMAZON_MUSIC_LINK" target="_blank" alt="Amazon Music">
 
-            <a href="YOUR_AMAZON_MUSIC_LINK" target="_blank" class="platform-btn">
-                <span class="platform-name">Amazon Music</span>
-                <span class="listen-tag">Listen</span>
-            </a>
+            <!-- Bandcamp (Middle Right Button) -->
+            <area shape="rect" coords="512,828,860,885" href="YOUR_BANDCAMP_LINK" target="_blank" alt="Bandcamp">
 
-            <a href="YOUR_BANDCAMP_LINK" target="_blank" class="platform-btn">
-                <span class="platform-name">Bandcamp</span>
-                <span class="listen-tag">Listen</span>
-            </a>
+            <!-- YouTube Music (Bottom Left Button) -->
+            <area shape="rect" coords="140,898,488,955" href="YOUR_YOUTUBE_MUSIC_LINK" target="_blank" alt="YouTube Music">
 
-            <a href="YOUR_YOUTUBE_MUSIC_LINK" target="_blank" class="platform-btn">
-                <span class="platform-name">YouTube Music</span>
-                <span class="listen-tag">Listen</span>
-            </a>
-
-            <a href="YOUR_TIDAL_LINK" target="_blank" class="platform-btn">
-                <span class="platform-name">Tidal</span>
-                <span class="listen-tag">Listen</span>
-            </a>
-        </div>
+            <!-- Tidal (Bottom Right Button) -->
+            <area shape="rect" coords="512,898,860,955" href="YOUR_TIDAL_LINK" target="_blank" alt="Tidal">
+        </map>
     </div>
+
+    <script>
+        window.onload = function() {
+            imageMapResize();
+        };
+    </script>
 
 </body>
 </html>
