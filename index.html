@@ -10,64 +10,163 @@
             margin: 0;
             padding: 0;
         }
+
         body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: #0d1533;
+            color: #e5c158;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+            padding: 20px 0;
         }
-        .wrapper {
-            max-width: 1024px;
+
+        /* Dynamic Blurred Background using cover.jpg */
+        .bg-blur {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('cover.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(35px) brightness(0.4);
+            transform: scale(1.15);
+            z-index: -1;
+        }
+
+        .container {
             width: 100%;
-            display: flex;
-            justify-content: center;
+            max-width: 420px;
+            padding: 24px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
         }
-        img {
-            max-width: 100%;
+
+        .album-art {
+            width: 100%;
             height: auto;
+            border-radius: 6px;
             display: block;
+            margin-bottom: 20px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
         }
-        area {
-            cursor: pointer;
+
+        .header-title {
+            font-size: 18px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .album-title {
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        @media (max-width: 380px) {
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .platform-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgba(18, 27, 64, 0.75);
+            backdrop-filter: blur(8px);
+            border: 1.5px solid #e5c158;
+            border-radius: 10px;
+            padding: 10px 12px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .platform-btn:hover {
+            background-color: rgba(229, 193, 88, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .platform-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .listen-tag {
+            background-color: #e5c158;
+            color: #121b40;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            padding: 4px 8px;
+            border-radius: 5px;
+            text-transform: uppercase;
         }
     </style>
-    <!-- Script to make image map coordinates responsive on mobile screens -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/image-map-resizer/1.0.10/js/imageMapResizer.min.js"></script>
 </head>
 <body>
 
-    <div class="wrapper">
-        <img src="Matt Cover Streamer.jpeg" usemap="#streaming-map" alt="Matt Fox Band - MATT">
+    <!-- Blurred Background Layer -->
+    <div class="bg-blur"></div>
 
-        <map name="streaming-map">
-            <!-- Spotify (Top Left Button) -->
-            <area shape="rect" coords="140,755,488,815" href="open.spotify.com/artist/3wqUaMA6wyUR7ok8ckFbN2?si=HmMp0sIXRJO2aGRDuJL_HQ" target="_blank" alt="Spotify">
+    <div class="container">
+        <!-- Main Artwork -->
+        <img src="cover.jpg" alt="Matt Fox Band - MATT" class="album-art">
 
-            <!-- Apple Music (Top Right Button) -->
-            <area shape="rect" coords="512,755,860,815" href="YOUR_APPLE_MUSIC_LINK" target="_blank" alt="Apple Music">
+        <!-- Titles -->
+        <div class="header-title">Matt Fox Band</div>
+        <div class="album-title">MATT</div>
 
-            <!-- Amazon Music (Middle Left Button) -->
-            <area shape="rect" coords="140,828,488,885" href="YOUR_AMAZON_MUSIC_LINK" target="_blank" alt="Amazon Music">
+        <!-- Buttons -->
+        <div class="links-grid">
+            <a href="YOUR_SPOTIFY_LINK" target="_blank" class="platform-btn">
+                <span class="platform-name">Spotify</span>
+                <span class="listen-tag">Listen</span>
+            </a>
 
-            <!-- Bandcamp (Middle Right Button) -->
-            <area shape="rect" coords="512,828,860,885" href="YOUR_BANDCAMP_LINK" target="_blank" alt="Bandcamp">
+            <a href="YOUR_APPLE_MUSIC_LINK" target="_blank" class="platform-btn">
+                <span class="platform-name">Apple Music</span>
+                <span class="listen-tag">Listen</span>
+            </a>
 
-            <!-- YouTube Music (Bottom Left Button) -->
-            <area shape="rect" coords="140,898,488,955" href="YOUR_YOUTUBE_MUSIC_LINK" target="_blank" alt="YouTube Music">
+            <a href="YOUR_AMAZON_MUSIC_LINK" target="_blank" class="platform-btn">
+                <span class="platform-name">Amazon Music</span>
+                <span class="listen-tag">Listen</span>
+            </a>
 
-            <!-- Tidal (Bottom Right Button) -->
-            <area shape="rect" coords="512,898,860,955" href="YOUR_TIDAL_LINK" target="_blank" alt="Tidal">
-        </map>
+            <a href="YOUR_BANDCAMP_LINK" target="_blank" class="platform-btn">
+                <span class="platform-name">Bandcamp</span>
+                <span class="listen-tag">Listen</span>
+            </a>
+
+            <a href="YOUR_YOUTUBE_MUSIC_LINK" target="_blank" class="platform-btn">
+                <span class="platform-name">YouTube Music</span>
+                <span class="listen-tag">Listen</span>
+            </a>
+
+            <a href="YOUR_TIDAL_LINK" target="_blank" class="platform-btn">
+                <span class="platform-name">Tidal</span>
+                <span class="listen-tag">Listen</span>
+            </a>
+        </div>
     </div>
-
-    <script>
-        window.onload = function() {
-            imageMapResize();
-        };
-    </script>
 
 </body>
 </html>
