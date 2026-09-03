@@ -3,55 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Album Out Now</title>
+    <title>Matt Fox Band - MATT</title>
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
         body {
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #121b40;
+            color: #e5c158;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            margin: 0;
-            text-align: center;
+            padding: 20px 0;
         }
         .container {
-            max-width: 400px;
-            width: 90%;
-            padding: 20px;
-        }
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-        p {
-            color: #b3b3b3;
-            margin-bottom: 30px;
-        }
-        .btn {
-            display: block;
             width: 100%;
-            padding: 15px 0;
-            margin: 10px 0;
-            background-color: #1db954;
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 25px;
-            transition: background-color 0.2s ease;
+            max-width: 440px;
+            padding: 24px;
+            text-align: center;
         }
-        .btn:hover {
-            background-color: #1ed760;
+        .album-art {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            display: block;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        .header-title {
+            font-size: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .album-title {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+        }
+        .links-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        @media (max-width: 400px) {
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .platform-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: transparent;
+            border: 2px solid #e5c158;
+            border-radius: 12px;
+            padding: 10px 12px;
+            text-decoration: none;
+            color: #ffffff;
+            transition: all 0.2s ease;
+        }
+        .platform-btn:hover {
+            background-color: rgba(229, 193, 88, 0.15);
+            transform: translateY(-1px);
+        }
+        .platform-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        .listen-tag {
+            background-color: #e5c158;
+            color: #121b40;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            padding: 4px 8px;
+            border-radius: 6px;
+            text-transform: uppercase;
         }
     </style>
 </head>
 <body>
+
     <div class="container">
-        <h1>New Album</h1>
-        <p>Listen now on your favorite platform</p>
-        
-        <a href="YOUR_SPOTIFY_ALBUM_URL" class="btn" target="_blank">Listen on Spotify</a>
+        <img src="cover.jpg" alt="Matt Fox Band - MATT" class="album-art">
+
+        <div class="header-title">Matt Fox Band</div>
+        <div class="album-title">MATT</div>
+
+        <div class="links-grid">
+            <a href="YOUR_SPOTIFY_LINK" target="_blank" class="platform-btn">
+                <span class="platform-name">Spotify</span>
+                <span class="listen-tag">Listen</span>
+            </a>
+
+            <a href="YOUR_APPLE_MUSIC_LINK" target="_blank" class="platform-btn">
+                <span class="platform-name">Apple Music</span>
+                <span class="listen-tag">Listen</span>
+            </a>
+
+            <a href="YOUR_AMAZON_MUSIC_LINK" target="_blank" class="platform-btn">
+                <span class="platform-name">Amazon Music</span>
+                <span class="listen-tag">Listen</span>
+            </a>
+
+            <a href="YOUR_BANDCAMP_LINK" target="_blank" class="platform-btn">
+                <span class="platform-name">Bandcamp</span>
+                <span class="listen-tag">Listen</span>
+            </a>
+
+            <a href="YOUR_YOUTUBE_MUSIC_LINK" target="_blank" class="platform-btn">
+                <span class="platform-name">YouTube Music</span>
+                <span class="listen-tag">Listen</span>
+            </a>
+
+            <a href="YOUR_TIDAL_LINK" target="_blank" class="platform-btn">
+                <span class="platform-name">Tidal</span>
+                <span class="listen-tag">Listen</span>
+            </a>
+        </div>
     </div>
+
 </body>
 </html>
